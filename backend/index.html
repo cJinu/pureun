@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIOFU File Upload</title>
+</head>
+<body>
+  <h1>SIOFU File Upload</h1>
+  <h1 id="title">방금 다운 받은 파일의 이름은?</h1>
+  
+  <input type="file" id="siofu_input" />
+  <button id="uploadBtn">Upload File</button>
+  <br>
+
+  <input type="text" id="code" placeholder="코드를 입력하세요">
+  <input type="text" id="code_detail" placeholder="디테일을 입력하세요">
+  <button id="queryExecute">쿼리 발사!</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+  <script src="/siofu/client.js"></script>
+  <script>
+    const socket = io();
+    const uploader = new SocketIOFileUpload(socket);
+
+    const code = document.querySelector("#code");
+    const code_detail = document.querySelector("#code_detail");
+    
+    socket.on('msg', data => {
+      document.querySelector("#title").textContent = data;
+    })
+
+    document.querySelector("#queryExecute").onclick = (e) => {
+      alert(`${code.value} : ${code_detail.value}`);
+      socket.emit("insertSql", [code.value, code_detail.value]);
+    }
+
+    socket.on("error", (errorMessage) => {
+      alert(`${errorMessage}`);
+    })
+
+    
+    
+    uploader.listenOnInput(document.getElementById("siofu_input"));
+  </script>
+</body>
+</html>

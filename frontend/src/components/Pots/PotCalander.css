@@ -1,0 +1,62 @@
+.react-calendar {
+  width: 100%;
+  border: 0px;
+  font-family: "Pretendard Variable";
+  line-height: 1.125em;
+}
+
+.react-calendar__month-view__weekdays {
+  font-size: 1em;
+}
+
+.react-calendar__year-view .react-calendar__tile,
+.react-calendar__decade-view .react-calendar__tile,
+.react-calendar__century-view .react-calendar__tile {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+  padding: 0rem;
+}
+
+.react-calendar__tile {
+  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.react-calendar__tile--now {
+  border-radius: 20px;
+  background-color: #FEF3C7;
+}
+/*hover, focus 시 */
+.react-calendar__tile--now:enabled:hover,
+.react-calendar__tile--now:enabled:focus {
+  border-radius: 20px;
+}
+
+/*hover, focus, 선택됐을 시 */
+.react-calendar__tile--hasActive,
+.react-calendar__tile--hasActive:enabled:hover,
+.react-calendar__tile--hasActive:enabled:focus,
+.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus,
+.react-calendar__tile--active {
+  border-radius: 20px;
+  background-color: #F3F4F6;
+}
+
+.react-calendar__tile--active,
+.react-calendar__month-view__days__day.react-calendar__tile:enabled:hover,
+.react-calendar__tile:enabled:focus {
+  background: none;
+  cursor: default;
+  color: black;
+}
+
+.react-calendar__month-view__days__day.react-calendar__tile--now:enabled:hover,
+.react-calendar__month-view__days__day.react-calendar__tile--now:enabled:focus{
+  background-color: #FEF3C7;
+}

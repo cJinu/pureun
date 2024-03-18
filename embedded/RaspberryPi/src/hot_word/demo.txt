@@ -1,0 +1,13 @@
+라즈베리파에서 demo 코드 돌리는 법
+
+$ sudo pip3 install pvporcupinedemo
+
+$ porcupine_demo_mic --access_key ${ACCESS_KEY} --keywords porcupine
+
+
+기본 명령어들: (choose from 'alexa', 'americano', 'blueberry', 'bumblebee', 'computer', 'grapefruit', 'grasshopper', 'hey barista', 'hey google', 'hey siri', 'jarvis', 'ok google', 'pico clock', 'picovoice', 'porcupine', 'terminator')
+
+방울아 해보는 명령어 (절대경로 말고 상대경로로도 ok)
+$ porcupine_demo_mic --access_key ${access_key} \                                 
+--model_path Desktop/plantz/hot-word/porcupine_params_ko.pv \
+--keyword_paths Desktop/plantz/hot-word/방울아_ko_raspberry-pi_v3_0_0.ppn 
